@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Cat
+comment1.params=
+comment1.target=java.lang.String\ printBirthday()
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment2.text=GET\ Method\ Propertie\ Name
+comment3.params=Name
+comment3.target=void\ setName(java.lang.String)
+comment3.text=SET\ Method\ Propertie\ Name
+comment4.params=
+comment4.target=java.lang.String\ getfavToy()
+comment4.text=GET\ Method\ Propertie\ favToy
+comment5.params=favToy
+comment5.target=void\ setfavToy(java.lang.String)
+comment5.text=SET\ Method\ Propertie\ favToy
+comment6.params=
+comment6.target=java.util.Date\ getBirthday()
+comment6.text=GET\ Method\ Propertie\ birthday
+comment7.params=birthday
+comment7.target=void\ setBirthday(java.util.Date)
+comment7.text=SET\ Method\ Propertie\ birthday
+numComments=8
