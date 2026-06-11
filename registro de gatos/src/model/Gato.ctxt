@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Gato
+comment1.params=
+comment1.target=java.lang.String\ getNome()
+comment1.text=GET\ Method\ Propertie\ nome
+comment2.params=nome
+comment2.target=void\ setNome(java.lang.String)
+comment2.text=SET\ Method\ Propertie\ nome
+comment3.params=
+comment3.target=java.lang.String\ getDataDeNascimento()
+comment3.text=GET\ Method\ Propertie\ dataDeNascimento
+comment4.params=dataDeNascimento
+comment4.target=void\ setDataDeNascimento(java.lang.String)
+comment4.text=SET\ Method\ Propertie\ dataDeNascimento
+comment5.params=
+comment5.target=java.lang.String\ getBrinquedoFavorito()
+comment5.text=GET\ Method\ Propertie\ brinquedoFavorito
+comment6.params=brinquedoFavorito
+comment6.target=void\ setBrinquedoFavorito(java.lang.String)
+comment6.text=SET\ Method\ Propertie\ brinquedoFavorito
+numComments=7

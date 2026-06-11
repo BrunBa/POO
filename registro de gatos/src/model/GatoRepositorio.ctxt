@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=GatoRepositorio
+comment1.params=database
+comment1.target=GatoRepositorio(Database)
+comment2.params=database
+comment2.target=void\ setDatabase(Database)
+comment3.params=gato
+comment3.target=Gato\ create(Gato)
+comment4.params=Gato
+comment4.target=void\ update(Gato)
+comment5.params=Gato
+comment5.target=void\ delete(Gato)
+comment6.params=id
+comment6.target=Gato\ loadFromId(int)
+comment7.params=
+comment7.target=java.util.List\ loadAll()
+numComments=8
