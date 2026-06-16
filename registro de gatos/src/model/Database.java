@@ -9,7 +9,12 @@ public class Database
    private JdbcConnectionSource connection = null;
    
    public Database(String databaseName) {
-       this.databaseName = databaseName;
+       java.io.File srcDb = new java.io.File("src/" + databaseName);
+       if (srcDb.exists()) {
+           this.databaseName = "src/" + databaseName;
+       } else {
+           this.databaseName = databaseName;
+       }
    }    
    
    public JdbcConnectionSource getConnection() throws SQLException {

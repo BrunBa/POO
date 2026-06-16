@@ -8,18 +8,30 @@ import javafx.scene.control.TableView;
 
 public class Gato {
     
+    private SimpleIntegerProperty id;
     private SimpleStringProperty nome;
     private SimpleStringProperty dataDeNascimento;
     private SimpleStringProperty brinquedoFavorito;
     
-    public Gato(String nome, 
+    public Gato(int id, String nome, 
                     String dataDeNascimento, String brinquedoFavorito) {
+        this.id = new SimpleIntegerProperty(id);
         this.nome = new SimpleStringProperty(nome);
         this.dataDeNascimento = new SimpleStringProperty(dataDeNascimento);
         this.brinquedoFavorito = new SimpleStringProperty(brinquedoFavorito);        
     }
     
 //Start GetterSetterExtension Source Code
+
+       /**GET Method Propertie id*/
+    public int getId(){
+        return this.id.get();
+    }//end method getId
+
+    /**SET Method Propertie id*/
+    public void setId(int id){
+        this.id.set(id);
+    }//end method setId
 
        /**GET Method Propertie nome*/
     public String getNome(){

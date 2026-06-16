@@ -123,10 +123,71 @@ public class AppController implements Initializable {
             dataDeNascimentoField.setText(newSelection.getDataDeNascimento());
             nomeField.setText(newSelection.getNome());
             brinquedoFavoritoField.setText(newSelection.getBrinquedoFavorito());
-            desabilitarBotoes(false,false,false,true,true);
+            desabilitarCampos(false);
+            desabilitarBotoes(false,false,false,false,true);
         }
     }
     
+    @FXML
+    public void onAtualizarButtonAction() {
+        try {
+            view.Gato selected = tabela.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                new Alert(AlertType.WARNING, "Selecione um gato para atualizar.").show();
+                return;
+            }
+            model.Gato gato = new model.Gato();
+            gato.setId(selected.getId());
+            gato.setNome(nomeField.getText());
+            gato.setDataDeNascimento(dataDeNascimentoField.getText());
+            gato.setBrinquedoFavorito(brinquedoFavoritoField.getText());
+            
+            gatoRepo.update(gato);
+            
+            selected.setNome(gato.getNome());
+            selected.setDataDeNascimento(gato.getDataDeNascimento());
+            selected.setBrinquedoFavorito(gato.getBrinquedoFavorito());
+            
+            tabela.refresh();
+            
+            desabilitarCampos(true);
+            desabilitarBotoes(false,true,true,true,true);
+            tabela.getSelectionModel().select(-1);
+            limparCampos();
+        }
+        catch(Exception e) {
+            new Alert(AlertType.ERROR, "Erro ao atualizar: "+e.getMessage()).show();
+        }
+    }
+
+    @FXML
+    public void onDeletarButtonAction() {
+        try {
+            view.Gato selected = tabela.getSelectionModel().getSelectedItem();
+            if (selected == null) {
+                new Alert(AlertType.WARNING, "Selecione um gato para deletar.").show();
+                return;
+            }
+            model.Gato gato = new model.Gato();
+            gato.setId(selected.getId());
+            gato.setNome(selected.getNome());
+            gato.setDataDeNascimento(selected.getDataDeNascimento());
+            gato.setBrinquedoFavorito(selected.getBrinquedoFavorito());
+            
+            gatoRepo.delete(gato);
+            
+            tabela.getItems().remove(selected);
+            
+            desabilitarCampos(true);
+            desabilitarBotoes(false,true,true,true,true);
+            tabela.getSelectionModel().select(-1);
+            limparCampos();
+        }
+        catch(Exception e) {
+            new Alert(AlertType.ERROR, "Erro ao deletar: "+e.getMessage()).show();
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         nomeCol.setCellValueFactory(
@@ -144,6 +205,7 @@ public class AppController implements Initializable {
     
     private view.Gato modelToView(model.Gato gato) {
         return new view.Gato(
+            gato.getId(),
             gato.getNome(),
             gato.getDataDeNascimento(),
             gato.getBrinquedoFavorito()

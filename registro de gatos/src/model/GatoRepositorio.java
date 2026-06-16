@@ -44,12 +44,20 @@ public class GatoRepositorio
         return gato;
     }    
 
-    public void update(Gato Gato) {
-      // TODO
+    public void update(Gato gato) {
+        try {
+            dao.update(gato);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
 
-    public void delete(Gato Gato) {
-      // TODO
+    public void delete(Gato gato) {
+        try {
+            dao.delete(gato);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
     }
     
     public Gato loadFromId(int id) {

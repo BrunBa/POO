@@ -11,7 +11,7 @@ import java.net.URL;
 /**
  * Interface Gráfica (GUI) do CRUD
  * 
- * @author marceloakira
+ * @author Bruno Barreto
  * @version 0.01
  */
 public class AppView extends Application
@@ -22,10 +22,20 @@ public class AppView extends Application
     
     public AppView() {
         this.loader = new FXMLLoader();
-        try {
-            this.url = new File("view/app.fxml").toURI().toURL();
-        } catch (Exception e) {
-            System.out.println("Erro na carga do FXML:" + e);
+        this.url = getClass().getResource("/view/app.fxml");
+        if (this.url == null) {
+            try {
+                this.url = new File("src/view/app.fxml").toURI().toURL();
+            } catch (Exception e) {
+                // Ignore
+            }
+        }
+        if (this.url == null) {
+            try {
+                this.url = new File("view/app.fxml").toURI().toURL();
+            } catch (Exception e) {
+                System.out.println("Erro na carga do FXML:" + e);
+            }
         }
         this.loader.setLocation(this.url);        
     }
